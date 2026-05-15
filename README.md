@@ -227,4 +227,6 @@ Vérifiez que `models/fatigue_detection_model.h5` existe. Sinon, lancez d'abord 
 
 ## Licence
 
-Projet académique.
+Distribué sous **licence MIT** — voir le fichier [LICENSE](LICENSE) pour les détails.
+
+Copyright (c) 2026 Philippe-Coder
