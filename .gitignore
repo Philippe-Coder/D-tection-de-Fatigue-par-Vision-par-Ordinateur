@@ -1,0 +1,35 @@
+# Environnements virtuels
+venv/
+env/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Données (datasets volumineux — voir README pour la structure attendue)
+data/
+
+# Modèles entraînés (à régénérer via train_model.py)
+models/*.h5
+models/*.keras
+models/*.pb
+
+# Logs / TensorBoard
+logs/
+*.log
