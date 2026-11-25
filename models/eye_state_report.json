@@ -1,0 +1,20 @@
+{
+  "dataset": "MRL Eye Dataset",
+  "images": 84898,
+  "validation_accuracy": 0.9667821298516742,
+  "test": {
+    "accuracy": 0.9399165507649513,
+    "recall_closed": 0.9367253750815394,
+    "precision_closed": 0.9683074848280513,
+    "confusion": {
+      "tp": 4308,
+      "tn": 2450,
+      "fp": 141,
+      "fn": 291
+    },
+    "n": 7190
+  },
+  "onnx_agreement": 1.0,
+  "epochs_run": 12,
+  "limit": 0
+}

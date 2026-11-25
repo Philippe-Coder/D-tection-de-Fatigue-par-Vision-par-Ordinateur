@@ -1,4 +1,4 @@
-tensorflow==2.18.0
-opencv-python==4.7.0.72
-PyQt5==5.15.7
-numpy==1.23.5
+# Les dépendances sont déclarées dans pyproject.toml.
+# Installation de l'application :      pip install -e .
+# Avec l'entraînement du CNN :         pip install -e ".[train]"
+-e .

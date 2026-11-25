@@ -1,0 +1,72 @@
+{
+  "name": "fatigue-guard",
+  "displayName": "Fatigue Guard",
+  "description": "Affiche votre niveau de vigilance dans la barre d'état et vous alerte en cas de fatigue ou de distraction.",
+  "version": "1.0.0",
+  "publisher": "philippe-coder",
+  "license": "MIT",
+  "icon": "icon.png",
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Other"],
+  "keywords": ["fatigue", "vigilance", "santé", "pause", "webcam"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Philippe-Coder/D-tection-de-Fatigue-par-Vision-par-Ordinateur"
+  },
+  "main": "./extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "commands": [
+      { "command": "fatigueGuard.start", "title": "Fatigue Guard : démarrer la surveillance" },
+      { "command": "fatigueGuard.stop", "title": "Fatigue Guard : arrêter la surveillance" },
+      { "command": "fatigueGuard.showDashboard", "title": "Fatigue Guard : ouvrir le tableau de bord" },
+      { "command": "fatigueGuard.recalibrate", "title": "Fatigue Guard : recalibrer" },
+      { "command": "fatigueGuard.menu", "title": "Fatigue Guard : menu" }
+    ],
+    "configuration": {
+      "title": "Fatigue Guard",
+      "properties": {
+        "fatigueGuard.command": {
+          "type": "string",
+          "default": "fatigue-guard",
+          "description": "Commande (ou chemin complet) de l'application Fatigue Guard, par exemple C:\\projet\\.venv\\Scripts\\fatigue-guard.exe."
+        },
+        "fatigueGuard.profile": {
+          "type": "string",
+          "default": "bureau",
+          "enum": ["bureau", "ecran", "etude", "examen", "conduite"],
+          "enumDescriptions": [
+            "Travail au bureau",
+            "Confort visuel (règle 20-20-20)",
+            "Étude / concentration",
+            "Examen (surveillance stricte)",
+            "Conduite"
+          ],
+          "description": "Profil utilisé au démarrage depuis VS Code."
+        },
+        "fatigueGuard.port": {
+          "type": "number",
+          "default": 8765,
+          "description": "Port du serveur local de Fatigue Guard."
+        },
+        "fatigueGuard.notifications": {
+          "type": "string",
+          "default": "alertes",
+          "enum": ["toutes", "alertes", "alarmes", "aucune"],
+          "enumDescriptions": [
+            "Conseils, avertissements et alarmes",
+            "Avertissements et alarmes",
+            "Alarmes uniquement",
+            "Aucune notification"
+          ],
+          "description": "Notifications affichées dans VS Code."
+        },
+        "fatigueGuard.autoStart": {
+          "type": "boolean",
+          "default": false,
+          "description": "Démarrer la surveillance à l'ouverture de VS Code."
+        }
+      }
+    }
+  }
+}

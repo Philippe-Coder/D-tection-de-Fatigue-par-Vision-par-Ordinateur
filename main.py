@@ -1,4 +1,7 @@
-from src.gui import start_gui
+"""Lance Fatigue Guard sans installation : python main.py [gui|run|stats|…]."""
+import sys
+
+from fatigue_guard.cli import main
 
 if __name__ == "__main__":
-    start_gui()
+    sys.exit(main())

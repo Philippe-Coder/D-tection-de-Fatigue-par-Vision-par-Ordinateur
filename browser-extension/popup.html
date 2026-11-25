@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Fatigue Guard</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="icons/icon48.png" alt="" width="28" height="28">
+    <div>
+      <h1>Fatigue Guard</h1>
+      <p id="profile" class="muted">Détection de fatigue et de distraction</p>
+    </div>
+    <button id="settings-toggle" class="ghost" title="Réglages" aria-label="Réglages">⚙</button>
+  </header>
+
+  <!-- Application lancée -->
+  <main id="live" hidden>
+    <section class="card gauge-card">
+      <svg viewBox="0 0 120 120" class="gauge" role="img" aria-label="Vigilance">
+        <circle class="track" cx="60" cy="60" r="48" pathLength="100"/>
+        <circle id="arc" class="arc" cx="60" cy="60" r="48" pathLength="100"/>
+        <text id="score" x="60" y="60">—</text>
+        <text id="state" x="60" y="80">En attente</text>
+      </svg>
+      <p id="reason" class="muted"></p>
+    </section>
+
+    <section class="tiles">
+      <div class="card tile" title="Part du temps yeux fermés sur la dernière minute"><span class="label">Yeux fermés</span><b id="perclos">—</b></div>
+      <div class="card tile" title="Clignements par minute"><span class="label">Clignements</span><b id="blinks">—</b></div>
+      <div class="card tile" title="Bâillements sur les 5 dernières minutes"><span class="label">Bâillements</span><b id="yawns">—</b></div>
+      <div class="card tile" title="Durée de la session"><span class="label">Session</span><b id="session">—</b></div>
+    </section>
+
+    <section class="actions">
+      <button id="toggle" class="primary">Démarrer</button>
+      <button id="show">Tableau de bord</button>
+      <button id="recalibrate">Recalibrer</button>
+    </section>
+
+    <section class="card alerts">
+      <span class="label">Alertes récentes</span>
+      <ul id="alerts"><li class="muted">Aucune alerte</li></ul>
+    </section>
+  </main>
+
+  <!-- Application non lancée -->
+  <main id="offline" hidden>
+    <section class="card">
+      <h2>L'application n'est pas lancée</h2>
+      <p class="muted">Cette extension affiche l'état calculé par l'application Fatigue Guard installée sur votre ordinateur. Lancez-la avec :</p>
+      <div class="command">
+        <code id="command">fatigue-guard gui --minimized</code>
+        <button id="copy">Copier</button>
+      </div>
+      <p class="muted">L'extension se connectera toute seule dès que l'application répondra.</p>
+    </section>
+  </main>
+
+  <section id="settings" class="card" hidden>
+    <label>Port de l'application
+      <input id="port" type="number" min="1024" max="65535">
+    </label>
+    <label>Notifications
+      <select id="notifications">
+        <option value="toutes">Conseils, avertissements et alarmes</option>
+        <option value="alertes">Avertissements et alarmes</option>
+        <option value="alarmes">Alarmes uniquement</option>
+        <option value="aucune">Aucune</option>
+      </select>
+    </label>
+  </section>
+
+  <footer class="muted">Traitement 100 % local, aucune image transmise</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

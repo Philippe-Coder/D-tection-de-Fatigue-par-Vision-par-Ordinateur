@@ -1,4 +1,4 @@
-# Environnements virtuels
+﻿# Environnements virtuels
 venv/
 env/
 .venv/
@@ -33,3 +33,8 @@ models/*.pb
 # Logs / TensorBoard
 logs/
 *.log
+
+# Paquets et rapports générés
+vscode-extension/*.vsix
+vscode-extension/node_modules/
+.pytest_cache/
